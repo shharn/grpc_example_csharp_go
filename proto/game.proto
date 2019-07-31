@@ -1,0 +1,55 @@
+syntax = 'proto3';
+
+option go_package='service';
+option csharp_namespace='GrpcExampleServer.Grpc';
+
+service GameService {
+    rpc CreateGame (CreateGameRequest) returns (CreateGameResponse) {}
+    rpc GetGame (GetGameRequest) returns (GetGameResponse) {}
+    rpc GetGames (GetGamesRequest) returns (GetGamesResponse) {}
+}
+
+message CreateGameRequest {
+    Game game = 1;
+}
+
+message CreateGameResponse {
+    int32 errorCode = 1;
+    string errorMessage = 2;
+    Game game = 3;
+}
+
+message GetGameRequest {
+    int32 id = 1;
+}
+
+message GetGameResponse {
+    int32 errorCode = 1;
+    string errorMessage = 2;
+    Game game = 3;
+}
+
+message GetGamesRequest {
+
+}
+
+message GetGamesResponse {
+    int32 errorCode = 1;
+    string errorMessage = 2;
+    repeated Game games = 3;
+}
+
+message Game {
+    int32 id = 1;
+    int32 gameCode = 2;
+    string name = 3;
+    enum Platform {
+        PC = 0;
+        MOBILE = 1;
+        CONSOLE = 2;
+        ETC = 3;
+    }
+    Platform platform = 4;
+    string landingUrl = 5;
+    string imageUrl = 6;
+}

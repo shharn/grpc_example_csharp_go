@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+  
+  <ItemGroup>
+	<PackageReference Include="Google.Protobuf" Version="3.8.0" />
+	<PackageReference Include="Grpc" Version="1.22.0" />
+	<PackageReference Include="Grpc.Tools" Version="1.22.0" PrivateAssets="All" />
+  </ItemGroup>
+  
+  <ItemGroup>
+	<Protobuf Include="../../../proto/game.proto" Link="Protos/game.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+</Project>
